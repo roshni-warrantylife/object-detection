@@ -74,8 +74,13 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
 
             val top = boundingBox.top * scaleFactor
             val bottom = boundingBox.bottom * scaleFactor
-            val left = boundingBox.left * scaleFactor
-            val right = boundingBox.right * scaleFactor
+            val objectOriginalLeft = boundingBox.left * scaleFactor
+            val objectOriginalRight = boundingBox.right * scaleFactor
+            val objectWidth = objectOriginalRight - objectOriginalLeft
+
+            // to resolve the issue with the inverted (mirrored) coordinates, I have flipped the coordinates horizontally
+            val left = width - objectOriginalLeft + objectWidth
+            val right = left + objectWidth
 
             // Draw bounding box around detected objects
             val drawableRect = RectF(left, top, right, bottom)

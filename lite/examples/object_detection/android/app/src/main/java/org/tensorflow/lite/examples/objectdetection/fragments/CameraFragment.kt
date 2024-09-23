@@ -231,7 +231,7 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener {
 
         // CameraSelector - makes assumption that we're only using the back camera
         val cameraSelector =
-            CameraSelector.Builder().requireLensFacing(CameraSelector.LENS_FACING_BACK).build()
+            CameraSelector.Builder().requireLensFacing(CameraSelector.LENS_FACING_FRONT).build()
 
         // Preview. Only using the 4:3 ratio because this is the closest to our models
         preview =
